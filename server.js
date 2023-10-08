@@ -50,13 +50,8 @@ const User = mongoose.model("User", {
   friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 });
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-};
-
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 function generateToken(user) {
   const payload = {
